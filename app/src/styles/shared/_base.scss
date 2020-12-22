@@ -1,0 +1,27 @@
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	font-size: 10px;
+}
+
+body {
+  background-color: $bg;
+	@include font;
+}
+
+button {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+}

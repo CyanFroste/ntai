@@ -1,0 +1,30 @@
+.home {
+
+  .landing {
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .sort {
+    height: 60px;
+    padding: $s;
+    padding-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .current {
+      font-size: 2.4rem;
+      color: $primary;
+    }
+    .controls {
+      
+    }
+  }
+
+	.view-holder {
+		// adjust list view
+		padding: $s;
+		height: calc(100vh - 60px);
+		width: 100vw;
+	}
+}
