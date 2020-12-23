@@ -4,11 +4,17 @@
 @import './shared/base';
 
 @import './screens/home';
+@import './screens/search';
+@import './screens/preview';
+@import './screens/tag';
 
 @import './components/view';
 @import './components/card';
 @import './components/image';
 @import './components/tag';
 @import './components/select';
+@import './components/sorter';
+@import './components/paginator';
+@import './components/searchbar';
 @import './components/appbar';
 @import './components/placeholders';

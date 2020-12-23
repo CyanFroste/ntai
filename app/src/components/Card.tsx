@@ -6,13 +6,31 @@ import {
 	HiOutlineTag,
 } from "react-icons/hi";
 import { group, capitalize } from "../helpers/tags";
+import { Link } from "react-router-dom";
 
 interface CardProps {
 	item: any;
 }
+
+const tags = (tags: object[]) => {
+	const grouped = group(tags);
+	return (grouped.list as string[]).map((group, i) => (
+		<div key={i} className="group">
+			<div className="group-title">
+				<HiOutlineTag /> {capitalize(group)}
+			</div>
+			{(grouped[group] as any[]).map((tag, i) => (
+				<span key={i} className="tag">
+					{tag.name}
+				</span>
+			))}
+		</div>
+	));
+};
+
 const Card = ({ item }: CardProps) => {
 	return (
-		<div className="card">
+		<Link to={`/doujin/${item.doujinId}`} className="card">
 			<Image className="thumbnail" {...item.thumbnail} />
 			<section className="summary">
 				<div className="id">
@@ -28,25 +46,9 @@ const Card = ({ item }: CardProps) => {
 					<HiHeart />
 					{item.favorites}
 				</div>
-				<div className="tags">
-					{(() => {
-						const grouped = group(item.tags);
-						return (grouped.list as string[]).map((group, i) => (
-							<div key={i} className="group">
-								<div className="group-title">
-									<HiOutlineTag /> {capitalize(group)}
-								</div>
-								{(grouped[group] as any[]).map((tag, i) => (
-									<span key={i} className="tag">
-										{tag.name}
-									</span>
-								))}
-							</div>
-						));
-					})()}
-				</div>
+				<div className="tags">{tags(item.tags)}</div>
 			</section>
-		</div>
+		</Link>
 	);
 };
 

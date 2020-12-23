@@ -1,0 +1,22 @@
+.tagged {
+
+  .tag-control {
+    margin-top: 40px;
+    padding: $s;
+    padding-bottom: 0;
+    height: $l;
+    .selected-tag {
+      padding: $xs $s;
+      border: $border-light;
+      border-radius: $rs;
+    }
+  }
+
+	.view-holder {
+		// adjust list view
+    padding: $s;
+		height: calc(100vh - 80px);
+    width: 100vw;
+    position: relative;
+	}
+}

@@ -11,17 +11,28 @@
 }
 
 body {
-  background-color: $bg;
+	background-color: $bg;
 	@include font;
 }
 
 button {
-  all: unset;
-  display: flex;
-  align-items: center;
+	all: unset;
+	display: flex;
+	align-items: center;
   justify-content: center;
-  svg {
-    width: 2.4rem;
-    height: 2.4rem;
-  }
+  box-sizing: border-box;
+	svg {
+		width: 2.4rem;
+		height: 2.4rem;
+	}
+}
+
+a {
+  text-decoration: none;
+  color: $text;
+}
+
+input {
+	background-color: $bg;
+	border: none;
 }

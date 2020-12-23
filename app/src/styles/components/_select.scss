@@ -2,38 +2,42 @@
 	.options-background {
 		position: fixed;
 		top: 0;
-		left: 0;
-		z-index: 10;
-		width: 100vw;
-		height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: $backdrop;
+    left: 0;
+    right: 0;
+    bottom: 0;
+		z-index: 100;
+		// width: 100vw;
+		// height: 100vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		background-color: $backdrop;
 	}
 
-  .title {
-    font-size: 2.4rem;
-    color: $primary;
-    margin-bottom: $m;
-    text-align: center;
-
-  }
+	.title {
+		font-size: 2.4rem;
+		color: $primary;
+		margin-bottom: $m;
+		text-align: center;
+	}
 
 	.options {
 		padding: $m;
-    background-color: $bg;
-    max-height: 600px;
-    max-width: 300px;    
-    border: $border-light;
-    border-radius: $rs;
-    .option {
+		background-color: $bg;
+		max-height: 600px;
+    max-width: 400px;
+    min-width: 200px;
+		border: $border-light;
+		border-radius: $rs;
+		.option {
       font-size: 1.6rem;
-      cursor: pointer;
-    }
-    .option:not(:last-child) {
-      margin-bottom: $s;
-    }
+			cursor: pointer;
+		}
+		.option:not(:last-child) {      
+			margin-bottom: $s;
+      padding-bottom: $s;
+      border-bottom: $border-light;
+		}
 	}
 }

@@ -1,5 +1,6 @@
 import { useQuery } from "react-query";
 import * as fetcher from "../helpers/fetcher";
+import { useInView } from "react-intersection-observer";
 
 interface ImageProps {
 	url: string;
@@ -9,12 +10,18 @@ interface ImageProps {
 	className: string;
 }
 const Image = ({ url, height, width, extension, className }: ImageProps) => {
+	const { ref, inView } = useInView({
+		triggerOnce: true,
+	});
 	// react query
-	const { data, status } = useQuery(["results", url, extension], fetcher.image);
+	const { data, status } = useQuery(
+		["results", url, extension],
+		fetcher.image,
+		{ enabled: inView }
+	);
 
 	return (
-		<div id="image" className={className}>
-			{/* <div className="ph-image"></div> */}
+		<div ref={ref} id="image" className={className}>
 			{status === "loading" && "Loading..."}
 			{status === "error" && "Error!"}
 			{status === "success" && data && (

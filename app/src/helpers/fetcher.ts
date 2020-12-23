@@ -17,6 +17,30 @@ export const search = async (
 	}
 };
 
+// doujin
+export const doujin = async (_key: any, id: string | number) => {
+	try {
+		const res = await fetch(`/api/doujin/${id}`);
+		return res.json();
+	} catch (err) {
+		console.error(err);
+	}
+};
+
+// doujin by tag
+export const searchByTag = async (
+	_key: any,
+	id: string | number,
+	page: number | string | null
+) => {
+	try {
+		const res = await fetch(`/api/doujins/tag/${id}?page=${page || 1}`);
+		return res.json();
+	} catch (err) {
+		console.error(err);
+	}
+};
+
 export const image = async (_key: any, url: string, ext: string) => {
 	try {
 		const options = {

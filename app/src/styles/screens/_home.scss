@@ -1,30 +1,72 @@
 .home {
+	.landing {
+		height: 100vh;
+		width: 100vw;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		position: relative;
 
-  .landing {
-    height: 100vh;
-    width: 100vw;
-  }
+		.indicator {
+			position: absolute;
+			bottom: $l;
+			svg {
+				color: darken($text, 70%);
+			}
+		}
 
-  .sort {
-    height: 60px;
-    padding: $s;
-    padding-bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    .current {
-      font-size: 2.4rem;
-      color: $primary;
-    }
-    .controls {
-      
-    }
-  }
+		#search {
+			width: 80%;
+			max-width: 600px;
+			padding: $s;
+			margin: $m;
+      border-bottom: $border-light;
+      position: relative;
+			input {
+        width: 100%;
+				color: $text;
+        outline: none;
+        padding: 0 $l;
+        min-height: 30px;
+				font-size: 2.4rem;
+				text-align: center;
+			}
+			input::placeholder {
+				// font-style: italic;
+				// letter-spacing: $xsls;
+				color: darken($text, 50%);
+      }
+      .reset {
+        position: absolute;
+        top: 50%;
+        right: $s;        
+        transform: translateY(-50%);
+        width: $m;
+        height: $m;
+        svg {
+          height: 1.6rem;
+          width: 1.6rem;
+        }
+      }
+		}
+
+		.go {
+			margin: $s;
+			height: 60px;
+			width: 60px;
+			border: 2px solid $primary;
+			border-radius: 50%;
+		}
+	}
+
+	
 
 	.view-holder {
 		// adjust list view
 		padding: $s;
-		height: calc(100vh - 60px);
-		width: 100vw;
+		height: calc(100vh - 80px);
+    width: 100vw;
+    position: relative;
 	}
 }

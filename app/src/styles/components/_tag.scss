@@ -4,4 +4,11 @@
   margin: $xs;
   border: $border-light;
   border-radius: $rs;
+  display: block;
+  .count::before {
+    content: "";
+    margin: 0 $s;
+    display: inline;
+    border-left: $border-light;
+  }
 }

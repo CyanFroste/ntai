@@ -1,7 +1,9 @@
-import { HiMenuAlt3 } from "react-icons/hi";
+import { useState } from "react";
+import { HiChevronDown, HiSearch, HiX } from "react-icons/hi";
 import { useQuery } from "react-query";
 import { useHistory, useLocation } from "react-router-dom";
-import Select from "../components/Select";
+import Sorter from "../components/controllers/Sorter";
+import Paginator from "../components/controllers/Paginator";
 import View from "../components/View";
 import * as fetcher from "../helpers/fetcher";
 
@@ -21,39 +23,59 @@ const Home = () => {
 		fetcher.search
 	);
 
-	const sortMethod = (sort: string | null) => {
-		if (sort === "today") return "Popular Today";
-		if (sort === "week") return "Popular this Week";
-		if (sort === "recent") return "Recent";
-		return "Popular all Time";
+	const [searchString, setSearchString] = useState("");
+
+	const search = () => {
+		if (isNaN(parseInt(searchString)))
+			return history.push(`/search?k=${searchString}`);
+		history.push(`/doujin/${parseInt(searchString)}`);
+	};
+
+	const reset = () => {
+		setSearchString("");
+		(document.querySelector("#search input") as HTMLInputElement).value = "";
 	};
 
 	return (
 		<main className="home">
-			<section className="landing"></section>
-			<section className="sort">
-				<div className="current">{sortMethod(sort)}</div>
-				<div className="controls">
-					<Select
-						title="Sort by"
-						// probable refactor
-						toggle={<HiMenuAlt3 />}
-						options={[
-							{ value: "recent", display: sortMethod("recent") },
-							{ value: "week", display: sortMethod("week") },
-							{ value: "today", display: sortMethod("today") },
-							{ value: "all", display: sortMethod("all") },
-						]}
-						onSelect={(option: string) => {
-							history.push(`/?s=${option}`);
-						}}
+			<section className="landing">
+				<form
+					id="search"
+					onSubmit={(e) => {
+						e.preventDefault();
+						search();
+					}}
+				>
+					<input
+						type="text"
+						placeholder="eg. 177013"
+						onChange={(e) => setSearchString(e.target.value)}
 					/>
+					{searchString.length > 0 && (
+						<button type="button" className="reset" onClick={reset}>
+							<HiX />
+						</button>
+					)}
+				</form>
+				<button className="go" onClick={search}>
+					<HiSearch />
+				</button>
+				<div className="indicator">
+					<button>
+						<HiChevronDown />
+					</button>
 				</div>
 			</section>
-			<section className="view-holder">
-				{status === "loading" && "Loading..."}
-				{status === "success" && data && <View {...{ items: data.doujins }} />}
-			</section>
+			{status === "loading" && "Loading..."}
+			{status === "success" && data && (
+				<>
+					<Sorter {...{ current: sort, page, keyword }} />
+					<section className="view-holder">
+						{data.doujins && <View {...{ items: data.doujins }} />}
+						<Paginator {...{ page, sort, keyword, total: data.numPages }} />
+					</section>
+				</>
+			)}
 		</main>
 	);
 };

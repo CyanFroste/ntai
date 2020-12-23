@@ -1,0 +1,25 @@
+.paginator {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: $s $xs;
+  background-color: $bg;
+	nav {
+    height: $l - $s;
+    width: 100%;
+		display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+		button, div {
+			padding: 0 $s;
+			margin: 0 $xs;
+		}
+		button {
+			height: 100%;
+      border: $border-light;
+      border-radius: $rs;
+		}
+	}
+}
