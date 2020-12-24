@@ -2,10 +2,16 @@ import { useQuery } from "react-query";
 import { Link, useParams } from "react-router-dom";
 import * as fetcher from "../helpers/fetcher";
 import Image from "../components/Image";
-import { HiHeart, HiOutlineBookOpen, HiOutlineCalendar } from "react-icons/hi";
+import {
+	HiBookOpen,
+	HiHeart,
+	HiOutlineBookOpen,
+	HiOutlineCalendar,
+} from "react-icons/hi";
 import { group, capitalize, shortenCount } from "../helpers/tags";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
+import Related from "../components/Related";
 
 const Preview = () => {
 	// route query
@@ -30,7 +36,7 @@ const Preview = () => {
 	};
 
 	// react query
-	const { data, status } = useQuery(["results", id], fetcher.doujin);
+	const { data, status } = useQuery(["doujin", id], fetcher.doujin);
 
 	const pageStyles = (imgWidth: number, imgHeight: number) => {
 		// using pages' margin, image h/w ratio and window.innerWidth, calculate page width and height
@@ -50,8 +56,8 @@ const Preview = () => {
 					{/* // details */}
 					<section className="details">
 						<div className="cover">
-							<Image className="bg" {...data.thumbnail} />
-							<Image className="main" {...data.thumbnail} />
+							<Image className="bg" {...data.thumbnail} phImg={false} />
+							<Image className="main" {...data.thumbnail} phImg={false} />
 						</div>
 						<div className="content-control">
 							<div className="id">{data.doujinId}</div>
@@ -78,7 +84,14 @@ const Preview = () => {
 							</div>
 						</div>
 					</section>
+
+					{/* related doujins */}
+					<Related id={data.doujinId} />
+
 					{/* // pages */}
+					<div className="chapters-indicator">
+						<HiBookOpen />
+					</div>
 					<section className="pages">
 						{(data.pages as any[]).map((page, i) => (
 							<div
@@ -86,7 +99,9 @@ const Preview = () => {
 								className="page"
 								style={pageStyles(page.width, page.height)}
 							>
-								<div className="pg-no">{i + 1}</div>
+								<div className="pg-no">
+									{i + 1} of {data.length}
+								</div>
 								<Image
 									className="page-image"
 									{...{

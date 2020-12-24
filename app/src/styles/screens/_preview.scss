@@ -15,6 +15,7 @@
 				width: 100%;
 				height: 100%;
 				z-index: -10;
+				background-color: $bg-depth;
 				img {
 					object-fit: cover;
 					filter: blur(8px);
@@ -97,32 +98,45 @@
 		//
 	}
 
+	.chapters-indicator {
+		width: 100%;
+		text-align: center;
+    padding-top: $l + $xs;
+    background-color: $bg-depth;
+
+		color: darken($text, 70%);
+		svg {
+			height: 2.4rem;
+			width: 2.4rem;
+		}
+	}
+
 	//
 	.pages {
 		min-height: 100vh;
 		display: flex;
 		flex-direction: column;
-		padding: $m 0;
-    background-color: $bg-depth;
+		padding: $l 0;
+		background-color: $bg-depth;
 		.page {
-      position: relative;      
-      border: $border-light;
+			position: relative;
+			border: $border-light;
 			.pg-no {
 				position: absolute;
 				top: 0;
-        right: 0;
-        padding: $xs $s;
-        margin: $xs;
-        border-radius: $rs;
-        font-size: 1.2rem;
-        font-weight: $bolder;
-        background-color: rgba($color: $bg, $alpha: 0.7);
-        opacity: 0;
-        transition: opacity 200ms ease-in-out;
-      }
-      &:hover .pg-no {
-        opacity: 1;
-      }
+				right: 0;
+				padding: $xs $s;
+				margin: $xs;
+				border-radius: $rs;
+				font-size: 1.2rem;
+				font-weight: $bolder;
+				background-color: rgba($color: $bg, $alpha: 0.7);
+				opacity: 0;
+				transition: opacity 200ms ease-in-out;
+			}
+			&:hover .pg-no {
+				opacity: 1;
+			}
 		}
 	}
 }

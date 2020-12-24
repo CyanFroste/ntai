@@ -16,7 +16,7 @@ const Home = () => {
 	const [page, sort, keyword] = useQueryParams("p", "s", "k");
 	// react query
 	const { data, status } = useQuery(
-		["results", keyword, page, sort],
+		["home", keyword, page, sort],
 		fetcher.search
 	);
 

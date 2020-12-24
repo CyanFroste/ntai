@@ -14,7 +14,7 @@ const Search = () => {
 
 	// react query
 	const { data, status } = useQuery(
-		["results", keyword, page, sort],
+		["searched", keyword, page, sort],
 		fetcher.search
 	);
 

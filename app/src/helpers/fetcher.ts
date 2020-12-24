@@ -41,6 +41,16 @@ export const searchByTag = async (
 	}
 };
 
+// related doujin
+export const related = async (_key: any, id: string | number) => {
+	try {
+		const res = await fetch(`/api/doujins/related/${id}`);
+		return res.json();
+	} catch (err) {
+		console.error(err);
+	}
+};
+
 export const image = async (_key: any, url: string, ext: string) => {
 	try {
 		const options = {

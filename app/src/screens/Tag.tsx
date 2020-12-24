@@ -13,7 +13,7 @@ const Tag = () => {
 	// more efficient way to get tag name?
 	const { id, name } = useParams<{ id: string; name: string }>();
 	// react query
-	const { data, status } = useQuery(["results", id, page], fetcher.searchByTag);
+	const { data, status } = useQuery(["tagged", id, page], fetcher.searchByTag);
 
 	return (
 		<main className="tagged">
