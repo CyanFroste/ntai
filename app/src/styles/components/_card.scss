@@ -13,6 +13,7 @@
     max-width: 160px;
     margin-right: $xs;
     background-color: $bg;
+    border-right: $border-light;
     // control inner img properties
     img {
       object-fit: cover;

@@ -103,8 +103,10 @@
 		display: flex;
 		flex-direction: column;
 		padding: $m 0;
+    background-color: $bg-depth;
 		.page {
       position: relative;      
+      border: $border-light;
 			.pg-no {
 				position: absolute;
 				top: 0;

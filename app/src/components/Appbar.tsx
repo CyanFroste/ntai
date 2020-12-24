@@ -9,7 +9,7 @@ const Appbar = () => {
 	return (
 		<header className="appbar">
 			<nav>
-				<button>
+				<button className="menu-toggle">
 					<HiMenu />
 				</button>
 

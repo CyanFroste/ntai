@@ -1,20 +1,16 @@
 import { useQuery } from "react-query";
-import { useLocation } from "react-router-dom";
 import Sorter from "../components/controllers/Sorter";
 import Paginator from "../components/controllers/Paginator";
 import View from "../components/View";
 import * as fetcher from "../helpers/fetcher";
-import { HiSearch } from "react-icons/hi";
 import Searchbar from "../components/controllers/Searchbar";
+import { useQueryParams } from "../hooks/query";
+import Error from "../components/Error";
+import Loading from "../components/Loading";
 
-interface SearchProps {}
 const Search = () => {
 	// query params
-	const location = useLocation();
-	const query = new URLSearchParams(location.search);
-	const page = query.get("p");
-	const sort = query.get("s");
-	const keyword = query.get("k");
+	const [page, sort, keyword] = useQueryParams("p", "s", "k");
 
 	// react query
 	const { data, status } = useQuery(
@@ -24,15 +20,26 @@ const Search = () => {
 
 	return (
 		<main className="search">
-			{status === "loading" && "Loading..."}
+			{status === "loading" && <Loading full={true} />}
+			{status === "error" && (
+				<Error
+					full={true}
+					message="Failed to get doujins, check your internet connection"
+				/>
+			)}
 			{status === "success" && data && (
 				<>
 					<Sorter {...{ current: sort, page, keyword }} />
-          <Searchbar />
+					<Searchbar />
 					<section className="view-holder">
-						<View {...{ items: data.doujins }} />
-           
-						<Paginator {...{ page, sort, keyword, total: data.numPages }} />
+						{data.doujins ? (
+							<>
+								<View {...{ items: data.doujins }} />
+								<Paginator {...{ page, sort, keyword, total: data.numPages }} />
+							</>
+						) : (
+							<Error message="Not Found" />
+						)}
 					</section>
 				</>
 			)}

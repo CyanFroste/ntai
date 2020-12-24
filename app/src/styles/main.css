@@ -135,7 +135,7 @@ input {
   margin: 10px;
   height: 60px;
   width: 60px;
-  border: 2px solid #F2c76e;
+  border: 2px solid #f2c76e;
   border-radius: 50%;
 }
 
@@ -203,7 +203,7 @@ input {
 }
 
 .preview .details .content-control .id {
-  color: #F2c76e;
+  color: #f2c76e;
   font-size: 2rem;
   font-weight: 500;
   letter-spacing: 0.025em;
@@ -287,10 +287,12 @@ input {
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 20px 0;
+  background-color: #0c0b0c;
 }
 
 .preview .pages .page {
   position: relative;
+  border: 1px solid #353535;
 }
 
 .preview .pages .page .pg-no {
@@ -359,6 +361,7 @@ input {
   max-width: 160px;
   margin-right: 5px;
   background-color: #19171a;
+  border-right: 1px solid #353535;
 }
 
 .card .thumbnail img {
@@ -444,6 +447,11 @@ input {
   margin-bottom: 40px;
 }
 
+#image {
+  width: 100%;
+  height: 100%;
+}
+
 #image div,
 #image img {
   width: 100%;
@@ -491,7 +499,7 @@ input {
 
 .select .title {
   font-size: 2.4rem;
-  color: #F2c76e;
+  color: #f2c76e;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -535,7 +543,7 @@ input {
 
 .sorter .current {
   font-size: 2rem;
-  color: #F2c76e;
+  color: #f2c76e;
 }
 
 .paginator {
@@ -630,7 +638,6 @@ input {
 .appbar nav {
   width: 100%;
   height: 100%;
-  padding: 0 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -640,6 +647,10 @@ input {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.appbar .menu-toggle {
+  padding: 0 10px;
 }
 
 .appbar .logo {
@@ -655,7 +666,8 @@ input {
 
 .appbar .logo a {
   font-weight: 500;
-  color: #F2c76e;
+  color: #f2c76e;
+  padding: 0 10px;
 }
 
 .appbar .searched {
@@ -674,7 +686,53 @@ input {
   margin: 0 5px;
 }
 
-.ph-image {
-  background-color: #F2c76e;
+.loading,
+.error {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.loading img#ph,
+.error img#ph {
+  width: 150px;
+  height: auto;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #353535;
+}
+
+.loading .text,
+.error .text {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  letter-spacing: 0.025em;
+  color: #f2c76e;
+  font-weight: 500;
+}
+
+.loading.fullscreen,
+.error.fullscreen {
+  width: 100vw;
+  height: 100vh;
+}
+
+.error .message {
+  margin-top: 20px;
+  text-align: center;
 }
 /*# sourceMappingURL=main.css.map */

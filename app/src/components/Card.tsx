@@ -31,7 +31,7 @@ const tags = (tags: object[]) => {
 const Card = ({ item }: CardProps) => {
 	return (
 		<Link to={`/doujin/${item.doujinId}`} className="card">
-			<Image className="thumbnail" {...item.thumbnail} />
+			<Image className="thumbnail" {...item.thumbnail} phImg={false} />
 			<section className="summary">
 				<div className="id">
 					<HiHashtag />

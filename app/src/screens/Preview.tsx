@@ -4,6 +4,8 @@ import * as fetcher from "../helpers/fetcher";
 import Image from "../components/Image";
 import { HiHeart, HiOutlineBookOpen, HiOutlineCalendar } from "react-icons/hi";
 import { group, capitalize, shortenCount } from "../helpers/tags";
+import Loading from "../components/Loading";
+import Error from "../components/Error";
 
 const Preview = () => {
 	// route query
@@ -18,7 +20,8 @@ const Preview = () => {
 				<div className="tags-wrap">
 					{(grouped[group] as any[]).map((tag, i) => (
 						<Link to={`/tag/${tag.id}/${tag.name}`} key={i} className="tag">
-							{tag.name}<span className="count">{shortenCount(tag.count)}</span>
+							{tag.name}
+							<span className="count">{shortenCount(tag.count)}</span>
 						</Link>
 					))}
 				</div>
@@ -40,8 +43,8 @@ const Preview = () => {
 
 	return (
 		<main className="preview">
-			{status === "loading" && "Loading..."}
-			{status === "error" && "Error!"}
+			{status === "loading" && <Loading full={true} />}
+			{status === "error" && <Error full={true} message="Not Found" />}
 			{status === "success" && data && (
 				<>
 					{/* // details */}
@@ -92,6 +95,7 @@ const Preview = () => {
 										width: page.width,
 										extension: page.extension,
 									}}
+									phImg={false}
 								/>
 							</div>
 						))}

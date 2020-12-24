@@ -1,3 +1,35 @@
-.ph-image {
-  background-color: $primary;
+.loading,
+.error {
+	width: 100%;
+	height: 100%;
+	padding: $m;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	img#ph {
+		width: 150px;
+		height: auto;
+		padding-bottom: $m;
+		margin-bottom: $m;
+		border-bottom: $border-light;
+	}
+	.text {
+		align-self: center;
+		letter-spacing: $xsls;
+		color: $primary;
+		font-weight: $bolder;
+	}
+}
+
+.loading.fullscreen,
+.error.fullscreen {
+	width: 100vw;
+	height: 100vh;
+}
+
+.error .message {
+	margin-top: $m;
+	text-align: center;
 }

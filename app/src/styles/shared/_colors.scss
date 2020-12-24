@@ -3,8 +3,10 @@ $white: #e7e7e7;
 // $black: #141414;
 $black: #19171a;
 $amber: #ffbf00;
-$yellow: #F2c76e;
+$yellow: #f2c76e;
 
 $text: $white;
 $bg: $black;
 $primary: $yellow;
+
+$bg-depth: darken($bg, 5%);
