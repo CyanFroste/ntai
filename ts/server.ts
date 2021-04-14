@@ -21,9 +21,9 @@ app.use("/api", doujins);
 app.use("/api", media);
 
 // serve react
-app.use(express.static(path.join(__dirname, "..", "app", "build")));
+app.use(express.static(path.join(__dirname, "app", "build")));
 app.get("/*", function (_, res) {
-	res.sendFile(path.join(__dirname, "..", "app", "build", "index.html"));
+	res.sendFile(path.join(__dirname, "app", "build", "index.html"));
 });
 
 // error handling middleware

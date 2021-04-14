@@ -5,4 +5,9 @@ app/node_modules/
 # Compiled js files
 **/*.js
 
+# Build
+app/build/
+
+# Environment
 app/.eslintcache
+.env

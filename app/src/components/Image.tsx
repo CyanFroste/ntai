@@ -22,6 +22,8 @@ const Image = ({
 }: ImageProps) => {
 	const { ref, inView } = useInView({
 		triggerOnce: true,
+		// can be passed as a prop
+		rootMargin: "0px 0px 400px 0px",
 	});
 	// react query
 	const { data, status } = useQuery(
@@ -42,7 +44,7 @@ const Image = ({
 			{status === "success" &&
 				data &&
 				(data.src ? (
-					<img height={height} width={width} src={data.src} alt={data.src} />
+					<img height={height} width={width} src={data.src} alt="" />
 				) : (
 					<Error image={phImg} message="Image Corrupted" />
 				))}
