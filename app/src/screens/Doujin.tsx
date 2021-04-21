@@ -3,7 +3,7 @@ import { useQuery } from 'react-query'
 import { Link, useParams } from 'react-router-dom'
 import { getDoujin } from '../services/requests'
 import Image from '../components/Image'
-import { HiBookOpen, HiCalendar, HiCheckCircle, HiChevronDown, HiChevronUp, HiHeart } from 'react-icons/hi'
+import { HiBookOpen, HiCalendar, HiCheckCircle, HiChevronDown, HiChevronUp, HiHeart, HiX } from 'react-icons/hi'
 import { capitalize, shortenNumber } from '../services/common'
 import Screen from '../layouts/Screen'
 import Modal from '../layouts/Modal'
@@ -50,6 +50,8 @@ const Doujin = () => {
     const [bookmarkCategory, setBookmarkCategory] = React.useState('')
     const [coverSrc, setCoverSrc] = React.useState('')
 
+    const [bookmarkStatus, setBookmarkStatus] = React.useState('')
+
     // react query
     const { data, status } = useQuery(['doujin', id], () => getDoujin(id))
 
@@ -67,13 +69,13 @@ const Doujin = () => {
     // * Bookmark controls
     const bookmark = () => {
         addBookmark(bookmarkCategory, mapDoujin(data))
-            .then((data) => console.log(data))
-            .catch((err) => console.log(err))
+            .then((data) => setBookmarkStatus(data.message))
+            .catch((err) => setBookmarkStatus(err.message))
         setIsAddBookmarkDialogOpen(false)
     }
 
     return (
-        <Screen title="ntai | doujins">
+        <Screen title={`ntai | ${id}`}>
             {status === 'loading' && <Loading full={true} />}
             {status === 'error' && <Error full={true} />}
             {status === 'success' && data && (
@@ -89,6 +91,16 @@ const Doujin = () => {
                                 <HiHeart />
                             </button>
                         </div>
+
+                        {bookmarkStatus && (
+                            <div className="bookmark-status">
+                                <button onClick={() => setBookmarkStatus('')}>
+                                    <HiX />
+                                </button>
+                                <div className="message">{bookmarkStatus}</div>
+                            </div>
+                        )}
+
                         <div className="titles">
                             <div>{data.titles.pretty}</div>
                         </div>

@@ -37,6 +37,26 @@
             justify-content: space-between;
         }
 
+        .bookmark-status {
+            margin-bottom: $m;
+            padding: $s;
+            background-color: $primary;
+            color: $bg;
+            display: flex;
+            align-items: center;
+            .message {
+                font-weight: $bolder;
+            }
+            button {
+                align-self: flex-start;
+                margin-right: $s;
+                background-color: $bg-elevated;
+                font-size: 1.6rem;
+                padding: $xs;
+                border-radius: $rs;
+            }
+        }
+
         .id {
             color: $primary;
             font-size: 2rem;

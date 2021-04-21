@@ -152,6 +152,22 @@ button {
   overflow: auto;
 }
 
+#drawer .drawer-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 80;
+  background-color: rgba(20, 18, 21, 0.9);
+}
+
+#drawer .content {
+  height: 100%;
+  width: 70%;
+  overflow: auto;
+}
+
 #image {
   width: 100%;
   height: 100%;
@@ -208,6 +224,56 @@ button {
   color: #f2c76e;
   padding: 0 10px;
   display: block;
+}
+
+.menu {
+  background-color: #19171a;
+  height: 100%;
+  padding: 10px;
+  padding-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.menu .links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.menu .links a:not(:last-of-type) {
+  margin-bottom: 10px;
+}
+
+.menu .links a {
+  background-color: #f2c76e;
+  padding: 10px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  color: #141215;
+  font-weight: 500;
+}
+
+.menu section {
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+
+.menu .copyright {
+  color: #818181;
 }
 
 .card {
@@ -765,6 +831,33 @@ button {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.doujin .details .bookmark-status {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f2c76e;
+  color: #141215;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.doujin .details .bookmark-status .message {
+  font-weight: 500;
+}
+
+.doujin .details .bookmark-status button {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-right: 10px;
+  background-color: #19171a;
+  font-size: 1.6rem;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .doujin .details .id {

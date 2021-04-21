@@ -20,6 +20,7 @@ const Home = () => {
                 <section className="details">
                     <div className="logo">ntai</div>
                     <div className="copyright">Cyan Froste © 2021</div>
+                    <div className="notice">Desktop UI is a work in progress</div>
                 </section>
 
                 <section className="controls">

@@ -16,7 +16,7 @@ const Doujins = () => {
     const { data, status } = useQuery(['doujins', keyword, tag, page, sort], () => getDoujins(keyword, tag, page, sort))
 
     return (
-        <Screen title="ntai | doujins">
+        <Screen title={`ntai | ${keyword || tagName || 'all'} | page ${page || 1}`}>
             {status === 'loading' && <Loading full={true} />}
             {status === 'error' && <Error full={true} />}
             {status === 'success' && data && (

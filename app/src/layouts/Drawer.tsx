@@ -20,8 +20,8 @@ const Drawer: React.FC<DrawerProps> = ({ children, isOpen, close }) => {
     return (
         <Portal>
             {isOpen && (
-                <div className="drawer__backdrop" onClick={close}>
-                    <div className="drawer__content" onClick={(e) => e.stopPropagation()}>
+                <div className="drawer-backdrop" onClick={close}>
+                    <div className="content" onClick={(e) => e.stopPropagation()}>
                         {children}
                     </div>
                 </div>
