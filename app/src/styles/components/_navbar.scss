@@ -1,0 +1,35 @@
+.navbar {
+    height: $l;
+    background-color: $bg;
+    position: sticky;
+    z-index: 40;
+    top: 0;
+
+    nav {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        section {
+            display: flex;
+            height: 100%;
+            align-items: center;
+        }
+    }
+
+    .menu-toggle {
+        height: 100%;
+        padding: 0 $s;
+        background-color: $bg;
+        font-size: 2.4rem;
+    }
+
+    .logo a {
+        font-size: 2.4rem;
+        font-weight: $bolder;
+        color: $primary;
+        padding: 0 $s;
+        display: block;
+    }
+}

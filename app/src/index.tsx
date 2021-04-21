@@ -1,11 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './styles/main.css';
-import App from './App';
+import * as React from 'react'
+import ReactDOM from 'react-dom'
+import './styles/main.css'
+import App from './App'
+import { HelmetProvider } from 'react-helmet-async'
+import { QueryClient, QueryClientProvider } from 'react-query'
+
+const queryClient = new QueryClient()
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+    <React.StrictMode>
+        <HelmetProvider>
+            <QueryClientProvider client={queryClient}>
+                <App />
+            </QueryClientProvider>
+        </HelmetProvider>
+    </React.StrictMode>,
+    document.getElementById('root')
+)

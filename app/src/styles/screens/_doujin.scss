@@ -1,0 +1,160 @@
+.doujin {
+    .details {
+        display: flex;
+        flex-direction: column;
+
+        .cover {
+            position: relative;
+            overflow: hidden;
+            // height: 300px;
+            height: 40vh;
+            min-height: 260px;
+            margin-bottom: $m;
+            .bg {
+                width: 100%;
+                height: 100%;
+                z-index: -10;
+                background-color: $bg;
+                object-fit: cover;
+                filter: blur(8px);
+            }
+            .main {
+                position: absolute;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                img {
+                    object-fit: contain;
+                }
+            }
+        }
+
+        .controls {
+            padding: 0 $s;
+            margin-bottom: $m;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .id {
+            color: $primary;
+            font-size: 2rem;
+            font-weight: $bolder;
+            letter-spacing: $xsls;
+        }
+
+        .bookmark {
+            margin-left: $s;
+            font-size: 2.4rem;
+            height: $m + $s;
+            width: $l + $s;
+            color: $primary;
+            background-color: $bg-elevated;
+            border-radius: $rs;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .titles {
+            padding: 0 $s;
+            margin-bottom: $m;
+            font-size: 1.6rem;
+            div {
+                margin-bottom: $xs;
+            }
+        }
+
+        .favorites,
+        .chapters,
+        .date {
+            padding: 0 $s;
+            display: flex;
+            align-items: center;
+            margin-bottom: $xs;
+            svg {
+                margin-right: $s;
+                color: darken($text, 40%);
+            }
+        }
+
+        .tags {
+            padding: $s;
+            .group-title {
+                margin-right: $s;
+                color: $primary;
+            }
+            .group,
+            .group-title,
+            .tags-wrap {
+                display: flex;
+                align-items: center;
+            }
+            .tags-wrap {
+                overflow: auto;
+            }
+        }
+    }
+
+    .pages {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        padding-top: $l;
+        padding-bottom: ($l + $m);
+        .page {
+            position: relative;
+            background-color: $bg-elevated;
+            .pg-no {
+                position: absolute;
+                top: 0;
+                right: 0;
+                padding: $xs $s;
+                margin: $xs;
+                border-radius: $rs;
+                font-size: 1.2rem;
+                font-weight: $bolder;
+                background-color: rgba($color: $bg, $alpha: 0.7);
+                opacity: 0;
+                transition: opacity 200ms ease-in-out;
+            }
+            &:hover .pg-no {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.tag {
+    white-space: nowrap;
+    padding: $xs $s;
+    margin: $xs;
+    border-radius: $rs;
+    background-color: $bg-elevated;
+    display: block;
+
+    .count {
+        margin-left: $xs;
+        color: darken($text, 40%);
+    }
+}
+
+.scroll {
+    position: fixed;
+    right: $s;
+    bottom: $s;
+    border-radius: $rs;
+    overflow: hidden;
+    height: $l;
+    display: flex;
+    align-items: center;
+    button {
+        padding: $s;
+        font-size: 1.6rem;
+        background-color: $bg-elevated;
+    }
+    .top {
+        color: $primary;
+    }
+}

@@ -1,24 +1,23 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "./screens/Home";
-import Appbar from "./components/Appbar";
-import Search from "./screens/Search";
-import Preview from "./screens/Preview";
-import Tag from "./screens/Tag";
+import * as React from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Bookmarks from './screens/Bookmarks'
+import Doujin from './screens/Doujin'
+import Doujins from './screens/Doujins'
+import Home from './screens/Home'
 
-const App = () => {
-	return (
-		<div className="App">
-			<Router>
-				<Appbar />
-				<Switch>
-					<Route exact path="/" component={Home} />
-					<Route exact path="/search" component={Search} />
-					<Route exact path="/tag/:id/:name" component={Tag} />
-					<Route exact path="/doujin/:id" component={Preview} />
-				</Switch>
-			</Router>
-		</div>
-	);
-};
+function App() {
+    return (
+        <div className="App">
+            <Router>
+                <Switch>
+                    <Route exact path="/" component={Home} />
+                    <Route exact path="/doujins" component={Doujins} />
+                    <Route exact path="/doujin/:id" component={Doujin} />
+                    <Route exact path="/bookmarks" component={Bookmarks} />
+                </Switch>
+            </Router>
+        </div>
+    )
+}
 
-export default App;
+export default App

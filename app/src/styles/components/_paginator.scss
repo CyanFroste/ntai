@@ -1,25 +1,33 @@
 .paginator {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  padding: $s $xs;
-  background-color: $bg;
-	nav {
-    height: $l - $s;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: $l + $s;
     width: 100%;
-		display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    background-color: $bg;
+    padding: $s;
+    nav {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
 
-		button, div {
-			padding: 0 $s;
-			margin: 0 $xs;
-		}
-		button {
-			height: 100%;
-      border: $border-light;
-      border-radius: $rs;
-		}
-	}
+        button,
+        div {
+            padding: 0 $s;
+            margin-left: $s;
+        }
+
+        .page {
+            display: flex;
+            align-items: center;
+        }
+
+        button {
+            height: 100%;
+            background-color: $bg-elevated;
+            border-radius: $rs;
+        }
+    }
 }

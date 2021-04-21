@@ -6,7 +6,7 @@ $amber: #ffbf00;
 $yellow: #f2c76e;
 
 $text: $white;
-$bg: $black;
 $primary: $yellow;
 
-$bg-depth: darken($bg, 5%);
+$bg: darken($black, 2%);
+$bg-elevated: $black;

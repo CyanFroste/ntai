@@ -1,0 +1,53 @@
+.controller {
+    position: sticky;
+    top: 40px;
+    padding: 0 $s;
+    background-color: $bg;
+
+    .current {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: $s;
+
+        .filter {
+            display: flex;
+            overflow: auto;
+        }
+
+        .sort {
+            flex-shrink: 0;
+            margin-left: $s;
+            display: flex;
+            button {
+                border-radius: $rs;
+                font-size: 1.6rem;
+                padding: $xs $s;
+                background-color: $bg-elevated;
+                color: $primary;
+                svg {
+                    margin-left: $xs;
+                }
+            }
+        }
+
+        .pill {
+            padding: $xs $s;
+            display: flex;
+            width: fit-content;
+            align-items: center;
+            background-color: $bg-elevated;
+            border-radius: $rs;
+            white-space: nowrap;
+
+            svg {
+                color: darken($text, 40%);
+                margin-right: $xs;
+            }
+
+            &:not(:last-of-type) {
+                margin-right: $s;
+            }
+        }
+    }
+}

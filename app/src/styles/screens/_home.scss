@@ -1,72 +1,61 @@
 .home {
-	.landing {
-		height: 100vh;
-		width: 100vw;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		position: relative;
+    padding: $s;
+    height: 100vh;
 
-		.indicator {
-			position: absolute;
-			bottom: $l;
-			svg {
-				color: darken($text, 70%);
-			}
-		}
+    .details,
+    .controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
 
-		#search {
-			width: 80%;
-			max-width: 600px;
-			padding: $s;
-			margin: $m;
-      border-bottom: $border-light;
-      position: relative;
-			input {
-        width: 100%;
-				color: $text;
-        outline: none;
-        padding: 0 $l;
-        min-height: 30px;
-				font-size: 2.4rem;
-				text-align: center;
-			}
-			input::placeholder {
-				// font-style: italic;
-				// letter-spacing: $xsls;
-				color: darken($text, 50%);
-      }
-      .reset {
-        position: absolute;
-        top: 50%;
-        right: $s;        
-        transform: translateY(-50%);
-        width: $m;
-        height: $m;
-        svg {
-          height: 1.6rem;
-          width: 1.6rem;
+    .details {
+        height: 20%;
+    }
+
+    .copyright {
+        color: darken($text, 40%);
+    }
+
+    .logo {
+        font-size: 4rem;
+        font-weight: $bolder;
+        color: $primary;
+    }
+
+    .controls {
+        height: 80%;
+    }
+
+    #search {
+        width: 80%;
+        max-width: 600px;
+        margin-bottom: $m;
+        input {
+            width: 100%;
+            background-color: $bg-elevated;
+            color: $text;
+            padding: $s $l;
+            border-radius: $rs;
+            min-height: 30px;
+            font-size: 2rem;
+            text-align: center;
         }
-      }
-		}
+    }
 
-		.go {
-			margin: $s;
-			height: 60px;
-			width: 60px;
-			border: 2px solid $primary;
-			border-radius: 50%;
-		}
-	}
-
-	
-
-	.view-holder {
-		// adjust list view
-		padding: $s;
-		height: calc(100vh - 80px);
-    width: 100vw;
-    position: relative;
-	}
+    .go,
+    .bookmarks {
+        width: 80%;
+        max-width: 600px;
+        background-color: $primary;
+        padding: $s;
+        border-radius: $rs;
+        color: $bg;
+        font-weight: $bolder;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: $s;
+    }
 }

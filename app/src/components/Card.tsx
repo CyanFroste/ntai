@@ -1,55 +1,40 @@
-import Image from "./Image";
-import {
-	HiHashtag,
-	HiHeart,
-	HiOutlineBookOpen,
-	HiOutlineTag,
-} from "react-icons/hi";
-import { group, capitalize } from "../helpers/tags";
-import { Link } from "react-router-dom";
+import * as React from 'react'
+import { HiBookOpen, HiHeart } from 'react-icons/hi'
+import { Link } from 'react-router-dom'
+import { capitalize, trunicate } from '../services/common'
+import Image from './Image'
 
 interface CardProps {
-	item: any;
+    item: any
 }
 
-const tags = (tags: object[]) => {
-	const grouped = group(tags);
-	return (grouped.list as string[]).map((group, i) => (
-		<div key={i} className="group">
-			<div className="group-title">
-				<HiOutlineTag /> {capitalize(group)}
-			</div>
-			{(grouped[group] as any[]).map((tag, i) => (
-				<span key={i} className="tag">
-					{tag.name}
-				</span>
-			))}
-		</div>
-	));
-};
-
 const Card = ({ item }: CardProps) => {
-	return (
-		<Link to={`/doujin/${item.doujinId}`} className="card">
-			<Image className="thumbnail" {...item.thumbnail} phImg={false} />
-			<section className="summary">
-				<div className="id">
-					<HiHashtag />
-					{item.doujinId}
-				</div>
-				<div className="title">{item.titles.pretty}</div>
-				<div className="chapters">
-					<HiOutlineBookOpen />
-					{item.length}
-				</div>
-				<div className="favorites">
-					<HiHeart />
-					{item.favorites}
-				</div>
-				<div className="tags">{tags(item.tags)}</div>
-			</section>
-		</Link>
-	);
-};
+    return (
+        <Link to={`/doujin/${item.id}`} className="card">
+            <Image className="thumbnail" {...item.thumbnail} lazy={true} />
+            <section className="summary">
+                <div className="id">{item.id}</div>
+                <div className="title">{trunicate(item.titles.pretty, 50)}</div>
+                <div className="chapters">
+                    <HiBookOpen />
+                    {item.length}
+                </div>
+                <div className="favorites">
+                    <HiHeart />
+                    {item.favorites}
+                </div>
+                <div className="artist">
+                    {capitalize(item.tags.all.find((t: any) => t.type === 'artist')?.name || 'Unknown Artist')}
+                </div>
+                <div className="language">
+                    {item.tags.all
+                        .filter((t: any) => t.type === 'language')
+                        .map((t: any) => capitalize(t.name))
+                        .join(' | ')}
+                </div>
+            </section>
+        </Link>
+    )
+}
 
-export default Card;
+export default Card

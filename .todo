@@ -1,2 +1,24 @@
-impement new api
-download doujin
+Dependencies - npm i express axios cors dotenv ip mongoose pug progress socket.io
+
+    express
+    axios
+    cors
+    dotenv
+    ip    
+    mongoose
+    pug
+    progress
+    socket.io
+
+    Dev - npm i -D @types/express @types/node @types/cors @types/ip @types/progress prettier @prettier/plugin-pug nodemon
+
+        @types/express
+        @types/node
+        @types/cors
+        @types/ip
+        @types/progress
+        prettier
+        @prettier/plugin-pug
+        nodemon
+
+replace axios with node-fetch?

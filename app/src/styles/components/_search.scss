@@ -1,0 +1,23 @@
+.search {
+    margin-bottom: $s;
+    form {
+        display: flex;
+    }
+
+    button {
+        padding: $s;
+        margin-left: $s;
+        svg {
+            height: 1.6rem;
+            width: 1.6rem;
+        }
+    }
+
+    input {
+        height: $l;
+        width: 100%;
+        background-color: $bg-elevated;
+        border-radius: $rs;
+        padding: $xs $s;
+    }
+}

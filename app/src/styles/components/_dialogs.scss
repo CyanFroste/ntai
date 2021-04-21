@@ -1,0 +1,60 @@
+.add-bookmark-dialog {
+    .category-select {
+        margin-bottom: $s;
+        font-size: 1.6rem;
+        color: $primary;
+    }
+
+    .category-options {
+        display: flex;
+        flex-direction: column;
+        max-height: 300px;
+        min-width: 200px;
+        overflow: auto;
+        margin-bottom: $m;
+        & > div {
+            padding: $s;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            svg {
+                margin-left: $xs;
+                color: $primary;
+            }
+        }
+    }
+}
+
+.add-bookmark-dialog,
+.remove-bookmark-dialog {
+    padding: $m;
+    background-color: $bg-elevated;
+    border-radius: $rs;
+    display: flex;
+    flex-direction: column;
+    button {
+        align-self: flex-end;
+        padding: $xs $s;
+        background-color: $primary;
+        color: $bg;
+        font-weight: $bolder;
+        border-radius: $rs;
+
+        &:disabled {
+            background-color: $bg;
+            color: darken($text, 40%);
+        }
+    }
+}
+
+.remove-bookmark-dialog {
+    min-width: 300px;
+    .message {
+        margin-bottom: $l;
+        span {
+            color: $primary;
+            letter-spacing: $xsls;
+            font-weight: $bolder;
+        }
+    }
+}

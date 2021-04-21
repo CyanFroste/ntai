@@ -1,21 +1,24 @@
+@import './shared/reset';
 @import './shared/colors';
 @import './shared/typography';
 @import './shared/variables';
 @import './shared/base';
+@import './shared/mixins';
+
+@import './components/buttons';
+@import './components/modal';
+
+@import './components/image';
+@import './components/navbar';
+@import './components/card';
+@import './components/controller';
+@import './components/paginator';
+@import './components/sorter';
+@import './components/search';
+@import './components/dialogs';
+@import './components/placeholders';
 
 @import './screens/home';
-@import './screens/search';
-@import './screens/preview';
-@import './screens/tag';
-
-@import './components/view';
-@import './components/card';
-@import './components/image';
-@import './components/tag';
-@import './components/select';
-@import './components/sorter';
-@import './components/paginator';
-@import './components/searchbar';
-@import './components/appbar';
-@import './components/related';
-@import './components/placeholders';
+@import './screens/doujins';
+@import './screens/doujin';
+@import './screens/bookmarks';

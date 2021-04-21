@@ -1,0 +1,43 @@
+.bookmarks {
+    padding: 0 $s;
+    .grid {
+        display: grid;
+        gap: $xs;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .bookmark {
+        border-radius: $rs;
+        overflow: hidden;
+        background-color: $bg-elevated;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+
+        .details {
+            padding: $xs;
+            .id {
+                font-size: 1.6rem;
+                color: $primary;
+                font-weight: $bolder;
+                letter-spacing: $xsls;
+            }
+            .category {
+                color: darken($text, 40%);
+            }
+        }
+
+        .controls {
+            display: flex;
+            padding: $xs;
+            justify-content: flex-end;
+            button {
+                font-size: 1.6rem;
+                padding: $xs;
+                margin-left: $xs;
+                background-color: $bg-elevated;
+                color: $primary;
+            }
+        }
+    }
+}
