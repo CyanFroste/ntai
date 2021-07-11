@@ -23,10 +23,10 @@ app.use('/api', media)
 app.use('/api', bookmarks)
 
 // serve react
-// app.use(express.static(path.join(__dirname, "app", "build")));
-// app.get("/*", function (_, res) {
-// 	res.sendFile(path.join(__dirname, "app", "build", "index.html"));
-// });
+app.use(express.static(path.join(__dirname, 'app', 'build')))
+app.get('/*', function (_, res) {
+    res.sendFile(path.join(__dirname, 'app', 'build', 'index.html'))
+})
 
 // error handling middleware
 app.use(errorHandler)
